@@ -5,6 +5,7 @@ public class Hero : MonoBehaviour {
 	public int Stars;
 	public string Name;
 	public static float HeroSpeed=0.01f;
+	private bool WasSelected=false;
 	void Update(){
 		transform.position += new Vector3 (HeroSpeed,0f,0f);
 		if(transform.position.x>1){
@@ -31,6 +32,21 @@ public class Hero : MonoBehaviour {
 		
 			Destroy (this.gameObject);
 		}
+	}
+	public void OnSelected(){
+		transform.Translate (Vector3.down);
+		//Debug.Log (Name);
+		WasSelected=true;
+	}
+
+	public GUIStyle style;
+	void OnGUI(){
+	
+		if (WasSelected){
+			GUI.skin.label = style;
+			GUI.Label (new Rect(Screen.width/3,Screen.height/4,300,200), "Congragulations Champion Unlocked!");
+		}
+
 	}
 	void SetMaterial(GameObject target, string path){
 		MeshRenderer renderer = target.GetComponent<MeshRenderer> ();
