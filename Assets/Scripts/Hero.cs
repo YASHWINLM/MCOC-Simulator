@@ -21,7 +21,7 @@ public class Hero : MonoBehaviour {
 				SetMaterial (heroObject, "Hulk Buster");
 			}
 			if(i==2){
-				SetMaterial (heroObject, "Antman");
+				SetMaterial (heroObject, "Gullotine");
 			}
 			if(i==3){
 				SetMaterial (heroObject, "Unst.");
@@ -37,6 +37,8 @@ public class Hero : MonoBehaviour {
 		transform.Translate (Vector3.down);
 		//Debug.Log (Name);
 		WasSelected=true;
+		Camera.main.transform.Translate (new Vector3 (0f, 0.6f, 0f));
+
 	}
 
 	public GUIStyle style;
